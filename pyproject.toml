@@ -1,0 +1,26 @@
+[project]
+name = "nominatim-openapi"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [{ name = "Jeremy Nguyen", email = "nguyen.jeremyt@gmail.com" }]
+requires-python = ">=3.13"
+dependencies = [
+  "fastapi[standard]>=0.141.1",
+  "nominatim-api>=5.3.2",
+  "psycopg[binary]>=3.3.5",
+  "pydantic>=2.13.5",
+]
+
+[project.scripts]
+nominatim-openapi = "nominatim_openapi:main"
+
+[tool.fastapi]
+entrypoint = "nominatim_openapi.main:app"
+
+[build-system]
+requires = ["uv_build>=0.12.13,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = ["ruff>=0.16.7"]
